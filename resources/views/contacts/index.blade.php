@@ -5,14 +5,13 @@
     <h1>Contacts</h1>
     <a href="{{ route('contacts.create') }}" class="btn btn-primary mb-3">Add Contact</a>
 
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
