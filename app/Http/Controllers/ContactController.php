@@ -10,13 +10,14 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-        return view('contacts.index', ['contact' => $contacts ]);
+        return view('contacts.index', ['contacts' => $contacts ]);
     }
 
     // Show
     public function create()
     {
-        return view('contacts.create');
+      $contacts = Contact::all();
+        return view('contacts.create', ['contacts' => $contacts ]);
     }
 
     // Store
@@ -35,27 +36,27 @@ class ContactController extends Controller
     public function show($id)
     {
       $contacts = Contact::find($id);
-      return view('contacts.view',['contact' => $contacts]);
+      return view('contacts.view',['contacts' => $contacts]);
     }
 
     //edit
     public function edit($id)
     {
-        $contact = Contact::find($id);
+        $contacts = Contact::find($id);
 
-        return view('contacts.edit', ['contact' => $contact]);
+        return view('contacts.edit', ['contacts' => $contacts]);
     }
 
     // Update
     public function update(Request $request,$id)
     {
-        $contact = Contact::find($id);
-         $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
+        $contacts = Contact::find($id);
+         $contacts->name = $request->name;
+        $contacts->email = $request->email;
+        $contacts->phone = $request->phone;
 
         
-        $contact->save();
+        $contacts->save();
 
         return redirect('/contacts');
     }
