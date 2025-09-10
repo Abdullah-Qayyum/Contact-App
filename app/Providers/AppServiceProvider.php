@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Providers;
+use App\Models\User;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Contact;
+use App\Observers\ContactObserver;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Contact::observe(ContactObserver::class);
     }
 }

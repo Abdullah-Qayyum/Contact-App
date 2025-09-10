@@ -23,12 +23,7 @@ class ContactController extends Controller
     // Store
     public function store(Request $request)
     {
-        $contacts = new Contact();
-        $contacts->name = $request->name;
-        $contacts->email = $request->email;
-        $contacts->phone = $request->phone;
-
-       $contacts->save();
+        $contacts =  Contact::create($request->all());
         return redirect('/contacts');
     }
 
